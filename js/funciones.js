@@ -1,3 +1,4 @@
+// funciones.js
 var total = 0;
 
 function buscarProductos(event) {
@@ -10,14 +11,14 @@ function buscarProductos(event) {
                 var fila = tabla.insertRow();
                 var celda0 = fila.insertCell(0);
                 celda0.innerHTML = "1";
-                var celda1 = fila.insertCell(1);
+                var celda1 = fila.insertCell(1);   
                 celda1.innerHTML = productos[i][1];
                 var celda2 = fila.insertCell(2);
                 celda2.innerHTML = productos[i][2];
                 var celda3 = fila.insertCell(3);
                 celda3.innerHTML = productos[i][2];
                 total += parseFloat(productos[i][2]);
-                document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+                document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
                 control = true;
                 document.getElementById('codigo').value = '';
                 break;
@@ -41,22 +42,10 @@ function procesarPago(event) {
         mostrarAlerta(`Cambio: $${cambio.toFixed(2)}`);
         total = 0;
         document.getElementById('monto-recibido').value = '';
+        limpiarTabla();
     }
 }
 
-function mostrarAlerta(mensaje) {
-    alerta = document.createElement('div');
-    alerta.textContent = mensaje;
-    alerta.style.position = 'fixed';
-    alerta.style.top = '50%';
-    alerta.style.left = '50%';
-    alerta.style.transform = 'translate(-50%, -50%)';
-    alerta.style.backgroundColor = 'white';
-    alerta.style.border = '2px solid black';
-    alerta.style.padding = '20px';
-    alerta.style.borderRadius = '10px';
-    document.body.appendChild(alerta);
-}
 function finalizarVenta() {
     limpiarTabla();
     if (alerta) {
@@ -65,7 +54,7 @@ function finalizarVenta() {
 }
 
 function limpiarTabla() {
-    document.getElementById('total').textContent = '$0.00';
+    document.getElementById('total').textContent = 'Total: $0.00';
     document.getElementById('tbody1').innerHTML = '';
 }
 

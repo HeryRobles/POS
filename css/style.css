@@ -59,8 +59,9 @@ table tr:nth-child(even) td {
 }
 
 .venta {
-    font-size: larger;
-    width: calc(100% - 6px);
+    display: flex;
+    align-items: center;
+    width: calc(100% - 50px);
 }
 
 .ButtonCont {
@@ -151,6 +152,8 @@ table tr:nth-child(even) td {
 
 .finalizar-venta-btn:hover {
     background-color: #cc0000;
+    transform: scale(1.1);
+    transition: 1s;
 }
 
 #monto-recibido {
